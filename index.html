@@ -79,10 +79,11 @@
     .row-item { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; font-weight: 500; color: var(--sub); line-height: 1.45; margin-bottom: 7px; }
     .row-dot { min-width: 6px; height: 6px; border-radius: 50%; background: var(--celeste); margin-top: 5px; flex-shrink: 0; }
     .row-dot.g { background: var(--green); }
+    @page { size: landscape; margin: 0; }
     @media print {
-      html, body { height:auto; overflow:visible; }
-      #deck { height:auto; position:relative; }
-      .slide { position:relative !important; opacity:1 !important; transform:none !important; pointer-events:all !important; page-break-after:always; break-after:page; height:100vh; min-height:100vh; }
+      html, body { height:auto; overflow:visible; margin:0 !important; padding:0 !important; }
+      #deck { height:auto; position:relative; display:block; }
+      .slide { position:relative !important; opacity:1 !important; transform:none !important; pointer-events:all !important; page-break-after:always; break-after:page; break-inside:avoid; height:100vh; min-height:100vh; overflow:hidden !important; }
       #nav, #slide-num { display:none !important; }
     }
   </style>
@@ -291,7 +292,7 @@
     <div>
       <div class="label-bar">Precio</div>
       <h2>Tarifario de Carriers — Colombia · Moto 2W</h2>
-      <p style="font-size:11px;color:var(--muted);margin-top:4px;font-weight:500;">Tarifario oficial Picker · Todos los precios en COP · Fee de orquestación Picker: <strong style="color:var(--text);">$1,000 COP / envío</strong> (suma al carrier seleccionado) · <strong style="color:var(--green-text);">Al completar 30,000 envíos acumulados el fee baja a $850 COP/envío</strong></p>
+      <p style="font-size:11px;color:var(--muted);margin-top:4px;font-weight:500;">Tarifario oficial Picker · Todos los precios en COP · Fee de orquestación Picker: <strong style="color:var(--text);">$1,000 COP / envío</strong> (suma al carrier seleccionado) · <strong style="color:var(--green-text);">Al completar 30,000 envíos al mes el fee baja a $850 COP/envío</strong></p>
     </div>
     <div class="card" style="padding:0;overflow:hidden;">
       <table class="tbl">
@@ -384,7 +385,7 @@
         <div>
           <div style="font-size:12px;font-weight:800;color:var(--celeste);">Fee Picker / envío</div>
           <div style="font-size:11px;color:var(--celeste);opacity:.8;">Dashboard · SLA · respaldo · factura maestra</div>
-          <div style="margin-top:6px;background:var(--green-dim);border:1px solid var(--green-mid);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:800;color:var(--green-text);">⭐ A 30K envíos acumulados → $850/env</div>
+          <div style="margin-top:6px;background:var(--green-dim);border:1px solid var(--green-mid);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:800;color:var(--green-text);">⭐ A 30K envíos/mes → $850/env</div>
         </div>
       </div>
       <div style="background:hsl(43 100% 67%/.12);border:2px solid hsl(43 100% 45%/.3);border-radius:12px;padding:12px 18px;flex:1;display:flex;gap:10px;align-items:flex-start;">
@@ -590,7 +591,7 @@
             <thead><tr><th>Concepto</th><th class="r">Valor</th><th class="r">Nota</th></tr></thead>
             <tbody>
               <tr><td><div style="font-weight:700;font-size:13px;">Fee orquestación</div><div style="font-size:11px;color:var(--muted);">Por cada envío gestionado en Picker</div></td><td class="r" style="font-size:15px;font-weight:900;">$1,000<span style="font-size:10px;font-weight:500;color:var(--muted);">/env</span></td><td class="r g">Sin iguala</td></tr>
-              <tr style="background:var(--green-dim);"><td><div style="font-weight:700;font-size:13px;color:var(--green-text);">⭐ Cláusula de escala</div><div style="font-size:11px;color:var(--green-text);opacity:.8;">Al completar 30,000 envíos acumulados en Picker</div></td><td class="r g" style="font-size:15px;font-weight:900;">$850<span style="font-size:10px;font-weight:500;color:var(--muted);">/env</span></td><td class="r g" style="font-size:11px;">Automático</td></tr>
+              <tr style="background:var(--green-dim);"><td><div style="font-weight:700;font-size:13px;color:var(--green-text);">⭐ Cláusula de escala</div><div style="font-size:11px;color:var(--green-text);opacity:.8;">Al completar 30,000 envíos al mes en Picker</div></td><td class="r g" style="font-size:15px;font-weight:900;">$850<span style="font-size:10px;font-weight:500;color:var(--muted);">/env</span></td><td class="r g" style="font-size:11px;">Automático</td></tr>
               <tr><td><div style="font-weight:700;font-size:13px;">Tarifa carriers 3PL</div><div style="font-size:11px;color:var(--muted);">Pibox · Rappi · Cabify · MU</div></td><td class="r dim">Desde $6,200</td><td class="r dim">Según km</td></tr>
               <tr><td><div style="font-weight:700;font-size:13px;">Implementación</div><div style="font-size:11px;color:var(--muted);">Setup Coopidrogas + droguerías piloto</div></td><td class="r g" style="font-size:15px;font-weight:900;">$0</td><td class="r g">Incluido</td></tr>
               <tr><td><div style="font-weight:700;font-size:13px;">Tarifas dinámicas</div><div style="font-size:11px;color:var(--muted);">Festivos, picos, lluvia</div></td><td class="r g" style="font-size:15px;font-weight:900;">$0</td><td class="r g">Mismo precio siempre</td></tr>
